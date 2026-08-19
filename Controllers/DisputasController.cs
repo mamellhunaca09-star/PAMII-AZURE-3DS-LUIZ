@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RpgApi.Data;
+using RpgApi.Dto;
 using RpgApi.Models;
+using RpgApi.services;
 
 namespace RpgApi.Controllers
 {
@@ -270,14 +272,15 @@ namespace RpgApi.Controllers
             { return BadRequest(ex.Message + " - " + ex.InnerException); }
         }
 
-        [HttpGet("Listar")]
-        public async Task<IActionResult> ListarAsync()
+        [HttpGet("ObterDisputas")]
+        public async Task<IActionResult> ObterDisputasAsync()
         {
             try
             {
-                List<Disputa> disputas =
-                await _context.TB_DISPUTAS.ToListAsync();
-                return Ok(disputas);
+              DisputasService service = new DisputasService(_context);
+              List<DisputaDto> lista = await service.ObterDisputas();
+
+              return Ok(lista);
             }
             catch (System.Exception ex)
             {

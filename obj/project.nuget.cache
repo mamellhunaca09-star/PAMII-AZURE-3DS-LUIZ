@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pJGsCCx+ixA=",
+  "dgSpecHash": "Zd5sB8uXchI=",
   "success": true,
-  "projectFilePath": "D:\\3DS\\RpgApi\\RpgApi.csproj",
+  "projectFilePath": "D:\\3DS\\PAMII-LUIZ\\RpgApi\\RpgApi.csproj",
   "expectedPackageFiles": [
     "D:\\NUGET_PACKAGES\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "D:\\NUGET_PACKAGES\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
@@ -61,10 +61,10 @@
     {
       "code": "NU1903",
       "level": "Warning",
-      "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
-      "projectPath": "D:\\3DS\\RpgApi\\RpgApi.csproj",
+      "message": "O pacote 'Microsoft.OpenApi' 2.0.0 tem uma alta vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "D:\\3DS\\PAMII-LUIZ\\RpgApi\\RpgApi.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\3DS\\RpgApi\\RpgApi.csproj",
+      "filePath": "D:\\3DS\\PAMII-LUIZ\\RpgApi\\RpgApi.csproj",
       "libraryId": "Microsoft.OpenApi",
       "targetGraphs": [
         "net10.0"

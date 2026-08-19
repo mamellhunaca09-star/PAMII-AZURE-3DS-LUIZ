@@ -11,10 +11,12 @@ using Microsoft.AspNetCore.Authorization;
 using System.Data;
 using Microsoft.AspNetCore.Authorization;
 using RpgApi.Extensions;
+using RpgApi.Services;
+using RpgApi.Dto;
 
 namespace RpgApi.Controllers
 {
-    [Authorize(Roles="Jogador,Admin")]
+   //[Authorize(Roles="Jogador,Admin")]
     [ApiController]
     [Route("[controller]")]
     public class PersonagensController : ControllerBase
@@ -246,20 +248,14 @@ namespace RpgApi.Controllers
             }
         }
 
-        [HttpGet("GetByPerfil/{userId}")]
-        public async Task<IActionResult> GetByPerfilAsync(int userId)
+        [HttpGet("ListarPersonagens/{id}/{classeId}")]
+        public async Task<IActionResult> ListarPersonagensAsync(int id, int classeId)
         {
             try
             {
-                Usuario usuario = await _context.TB_USUARIOS
-                .FirstOrDefaultAsync(x => x.Id == userId);
-                List<Personagem> lista = new List<Personagem>();
-                if (usuario.Perfil == "Admin")
-                    lista = await _context.TB_PERSONAGENS.ToListAsync();
-                else
-                    lista = await _context.TB_PERSONAGENS
-                    .Where(p => p.Usuario.Id == userId).ToListAsync();
-                return Ok(lista);
+               PersonagensServices services = new PersonagensServices(_context);
+               List<PersonagemDto> lista = await services.ListarPersonagens(id, classeId);
+               return Ok(lista);
             }
             catch (System.Exception ex)
             {
